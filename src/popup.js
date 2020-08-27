@@ -62,6 +62,10 @@ export default class extends Elem {
           this.delete()
           if (this[e.target.id]) this[e.target.id]()
         })
+        document.activeElement.blur()
+        this.addEvent("click", e => {
+          if (e.target.id === this.newNode.id) this.delete()
+        })
         break
       default:
         document.activeElement.blur()
